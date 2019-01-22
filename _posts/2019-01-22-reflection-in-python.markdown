@@ -145,7 +145,7 @@ def __import__(name, globals=None, locals=None, fromlist=(), level=0): # real si
 ### 对路由的模拟
 最简单的方式，是通过路径来解析，
 url包含为module的路径，调用的函数。
-具体示例参照[示例代码](examples/url_map/url.py)。
+具体示例参照[示例代码](https://github.com/moontree/moontree.github.io/blob/master/examples/url_map/url.py)。
 部分代码如下：
 ```
 import importlib
