@@ -40,15 +40,3 @@ local function main()
 	print("hello world everyone")
 end
 {% endhighlight %}
-
-
-## About me
-
-My primary research interest is in artificial intelligence, programming and education. See my project page for details.
-
-
-### 2005 Old Website 
-Here is my old personal website when I was in University. It was mostly on my projects and thoughts before 2005.
-
-* [Xizhi's old website before 2005](/oldsite2005/index.htm). 
-
