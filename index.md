@@ -2,6 +2,6 @@
 layout: frontpage
 ---
 
-## Welcome to my website
+## Welcome
 
 Know your ignorance and know more.
