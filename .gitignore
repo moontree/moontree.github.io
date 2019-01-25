@@ -2,3 +2,4 @@
 _site/
 *.pyc
 local
+.DS_Store
