@@ -2,7 +2,7 @@
 layout: post
 title:  "GPU remap in tensorflow"
 date:   2019-01-12
-categories: tensorflow-usage
+categories: tensorflow
 author: moontree
 ---
 
