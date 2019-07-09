@@ -115,11 +115,13 @@ def resize_simulator_bi_linear(image, target_size, mode):
 
 
 def compare():
-    resize_shape = (4, 4)
+    resize_shape = (1, 1)
     image = np.ones([1, 3, 3, 1], dtype=np.float32)
     image[0][0][0][0] = 5.
     image[0][1][1][0] = 5.
     image[0][2][2][0] = 5.
+    for r in image[0]:
+        print(r[:,0])
     inputs = tf.constant(image)
     sess = tf.Session()
     outputs = tf.image.resize_bilinear(inputs, resize_shape)

@@ -7,11 +7,24 @@ author: moontree
 ---
 
 - 查找关键字并计数
+
     `:%s/keyword//gn`
 - 查找关键字并删除对应行
+
     `:g/keword/d`
 - 删除不包含关键字的行:
+
     `:v/keword/d`
+- 删除重复行
+
+    `:sort`
+
+    `g/^\(.\+\)$\n\1/d`
+- 删除所有行
+
+    `:0`
+
+    `:.,$d`
 - 查找关键字并复制对应行到新文件:
     ```vim
     " Clear register A

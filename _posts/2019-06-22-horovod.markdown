@@ -1,0 +1,36 @@
+---
+layout: post
+title:  "horovod"
+date:   2019-06-22
+categories: tensorflow
+author: moontree
+---
+
+
+## install open-mpi
+
+[Open MPI: Open Source High Performance Computing](https://www.open-mpi.org/)
+
+[github](https://github.com/open-mpi/ompi)
+
+install steps:
+
+
+```shell
+wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.gz
+gunzip -c openmpi-4.0.1.tar.gz | tar xf -
+cd openmpi-4.0.1
+./configure --prefix=/usr/local
+<...lots of output...>
+make all install
+```
+
+[FAQ](https://www.open-mpi.org/faq/?category=building#easy-build)
+
+Note
+- 安装新版本不一定会完全重写旧版本的内容，最好完全卸载旧版本；或者将新版本安装到另一个目录
+
+## install horovod
+pip install horovod
+
+
