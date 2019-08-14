@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
 import cv2
+from PIL import Image
 
 
 def compute_lerp(top_left, top_right, bottom_left, bottom_right, x_lerp, y_lerp):
@@ -114,8 +115,14 @@ def resize_simulator_bi_linear(image, target_size, mode):
     return res
 
 
+def pil_resize(image, target_size, mode):
+    img = Image.fromarray(image[:, :, 0])
+    img = img.resize(target_size, resample=Image.BILINEAR)
+    return np.array(img)
+
+
 def compare():
-    resize_shape = (1, 1)
+    resize_shape = (4, 4)
     image = np.ones([1, 3, 3, 1], dtype=np.float32)
     image[0][0][0][0] = 5.
     image[0][1][1][0] = 5.
@@ -134,7 +141,10 @@ def compare():
     print_image(resize_simulator_bi_linear(image[0], resize_shape, 'cv'))
     print('---- using opencv ----')
     print_image(cv2.resize(image[0], resize_shape, interpolation=cv2.INTER_LINEAR))
-
+    # print_image(cv2.resize(image[0], resize_shape, interpolation=cv2.INTER_CUBIC))
+    # print_image(cv2.resize(image[0], resize_shape, interpolation=cv2.INTER_NEAREST))
+    print('---- using pillow ----')
+    print_image(pil_resize(image[0], resize_shape, ''))
 
 if __name__ == "__main__":
     compare()
