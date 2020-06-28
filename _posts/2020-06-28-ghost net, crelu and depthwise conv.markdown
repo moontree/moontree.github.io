@@ -9,7 +9,7 @@ author: moontree
 # GhostNet
 GhostNet是一篇CVPR2020的论文，先上论文链接
 [《GhostNet: More Features from Cheap Operations》]([https://arxiv.org/pdf/1911.11907.pdf)
-和[GitHubd地址](https://github.com/huawei-noah/ghostnet)。
+和[GitHub地址](https://github.com/huawei-noah/ghostnet)。
 
 论文的核心思想是，CNN模型中，特征图存在显著的冗余，通过观察特征，可以发现，由若干个特征可以从一个特征
 的线性变换得到。
