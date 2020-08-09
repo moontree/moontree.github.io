@@ -1,0 +1,25 @@
+---
+layout: post
+title:  "vlad系列理解"
+date:   2020-08-05
+categories: 视觉
+author: moontree
+---
+
+## 1
+VLAD(Vector of Local Aggregated Descriptors)，是图像特征提取方法的一种。
+
+图像检索经典思路：
+1. 存在一个图像库$I$，对每张图片$I_i$通过特征函数提取特征$f(I_i)$,
+2. 提供一张query图片$q$，通过特征函数提取特征$f(q)$
+3. 将query特征$f(q)$与图库特征$f(I)$做相似度计算，一般为欧式距离
+$d(q, I) = ||f(q) - f(I)||$，距离越小，越相似。
+
+这里提到的VLAD算是特征提取函数$f$的一种，可简称为$f_{vlad}$。
+但VLAD方法如其描述——局部聚类向量，将局部特征聚类得到一个向量。
+所以VLAD应用的前提是要先获得图像的局部特征。
+图像局部特征可以用SIFT，SURF，ORB等一般方法，也可以通过当前流行的CNN方法提取。
+
+
+
+《Aggregating local descriptors into a compact image representation》

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package rpc_package;
+
+service StarSeaService {
+    rpc SayHello (HelloRequest) returns (HelloResponse) {};
+    rpc Add (AddRequest) returns (AddResponse) {};
+}
+
+
+message HelloRequest {
+    string name = 1;
+}
+
+message HelloResponse {
+    int32 status = 1;
+    string message = 2;
+}
+
+message AddRequest {
+    repeated int32 vals = 1;
+}
+
+message AddResponse {
+    int32 sum_val = 1;
+}
