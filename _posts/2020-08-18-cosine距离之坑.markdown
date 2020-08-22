@@ -1,0 +1,67 @@
+---
+layout: post
+title:  "cosine距离之坑"
+date:   2020-08-18
+categories: tensorflow, c++
+author: moontree
+---
+
+
+在各种任务中，cosine距离是经常被用到的一种距离，定义如下：
+
+$$
+cosine(\vec{a}, \vec{b}) = \frac{\vec{a} \cdot \vec{b}} {||\vec{a}|| \cdot || \vec{b} ||}
+$$
+
+然而，在实际计算的时候，为了避免0向量导致的错误，需要对除数加一个极小值，防止除0错误。
+问题就出在了这里。
+
+## 两种实现方式
+
+```
+# v1
+def similarity(a, b):
+    a_norm = tf.sqrt(tf.reduce_sum(tf.square(a), axis = 1, keep_dims=True)) + 1e-10
+    b_norm = tf.sqrt(tf.reduce_sum(tf.square(b), axis = 1, keep_dims=True)) + 1e-10
+    a1 = a / a_norm
+    b1 = b / b_norm
+    dot = tf.reduce_sum(
+        a1 * b1,
+        axis=1,
+        keepdims=True
+    )
+    return dot
+```
+
+```
+# v2
+def similarity(a, b):
+    a1 = tf.nn.l2_normalize(a, dim = 0)
+    b1 = tf.nn.l2_normalize(b, dim = 0)
+    dot = tf.reduce_sum(
+        a1 * b1,
+        axis=1,
+        keepdims=True
+    )
+    return dot
+```
+
+前者会导致NAN，但是后者不会，这个问题很神奇；
+看了下`l2_normalize`的原理，
+```
+ with ops.name_scope(name, "l2_normalize", [x]) as name:
+    x = ops.convert_to_tensor(x, name="x")
+    square_sum = math_ops.reduce_sum(math_ops.square(x), axis, keepdims=True)
+    x_inv_norm = math_ops.rsqrt(math_ops.maximum(square_sum, epsilon))
+    return math_ops.multiply(x, x_inv_norm, name=name)
+```
+
+两者的区别在于`l2_norm`的计算，
+v1对应的是$\sqrt{x} + epsilon$，
+v2对应的是$\sqrt{max(x) + epsilon}$，理论上得到的值虽然不一样，但是都不应该产生溢出才对。
+
+考虑到float的不精确性，一般认为`bs(x) < 1e-6`可以视为$x=0$，
+怀疑是v1的epsilon设置的太小，导致float32中认为加的是0，
+但是设置成`1e-6`之后依然出现了nan，和预期不符。
+
+有空的时候试下`1e-5`，目前先采用v2这种可行方式吧。
