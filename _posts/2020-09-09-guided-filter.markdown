@@ -2,7 +2,7 @@
 layout: post
 title:  "导向滤波"
 date:   2020-09-09
-categories: cv, edge perserving filter
+categories: cv edge-perserving-filter
 author: moontree
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title:  "风格迁移系列"
 date:   2020-11-05
-categories: 视觉
+categories: cv style-transfer
 author: moontree
 ---
 

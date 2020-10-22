@@ -2,7 +2,7 @@
 layout: post
 title:  "Tone Mapping（色调映射）"
 date:   2020-08-30
-categories: cv, 图像风格
+categories: cv style-transfer tone-mapping
 author: moontree
 ---
 

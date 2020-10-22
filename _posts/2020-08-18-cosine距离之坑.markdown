@@ -2,7 +2,7 @@
 layout: post
 title:  "cosine距离之坑"
 date:   2020-08-18
-categories: tensorflow, c++
+categories: tensorflow
 author: moontree
 ---
 

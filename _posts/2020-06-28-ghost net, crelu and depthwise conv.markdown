@@ -2,7 +2,7 @@
 layout: post
 title:  "Ghost net, crelu, and depthwise convolution"
 date:   2020-06-28
-categories: deeplearning
+categories: deeplearning cv
 author: moontree
 ---
 

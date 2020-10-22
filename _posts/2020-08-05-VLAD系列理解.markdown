@@ -2,7 +2,7 @@
 layout: post
 title:  "vlad系列理解"
 date:   2020-08-05
-categories: 视觉
+categories: cv
 author: moontree
 ---
 

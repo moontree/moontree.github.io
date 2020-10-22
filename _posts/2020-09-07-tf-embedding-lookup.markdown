@@ -2,7 +2,7 @@
 layout: post
 title:  "Tensorflow Embedding Lookup"
 date:   2020-09-07
-categories: tensorflow, embedding_lookup
+categories: tensorflow embedding_lookup
 author: moontree
 ---
 &emsp;&emsp;对于从事深度学习的人来说，`tf.nn.embedding_lookup`这个函数应该并不罕见，活跃在各种embedding领域-文本、用户等。

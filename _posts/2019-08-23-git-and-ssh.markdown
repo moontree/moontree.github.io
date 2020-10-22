@@ -2,7 +2,7 @@
 layout: post
 title:  "some git and ssh usage"
 date:   2019-08-23
-categories: cmake
+categories: git
 author: moontree
 ---
 

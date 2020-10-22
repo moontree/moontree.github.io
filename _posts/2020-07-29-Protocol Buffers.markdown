@@ -2,7 +2,7 @@
 layout: post
 title:  "Protobuf探索"
 date:   2020-07-29
-categories: protobuf, c++
+categories: protobuf cpp
 author: moontree
 ---
 

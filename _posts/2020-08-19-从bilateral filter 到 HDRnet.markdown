@@ -2,7 +2,7 @@
 layout: post
 title:  "bilateral filter 到 HDRnet"
 date:   2020-08-19
-categories: tensorflow, cv, style transfer
+categories: tensorflow cv style-transfer
 author: moontree
 ---
 
